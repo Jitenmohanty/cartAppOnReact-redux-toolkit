@@ -1,22 +1,48 @@
 import React from "react";
 import { AiFillDelete } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
 
 const Cart = () => {
-    const img1 =
-    "https://www.reliancedigital.in/medias/Apple-MGN63HNA-Laptops-491946461-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wxNzczNDJ8aW1hZ2UvanBlZ3xpbWFnZXMvaDVhL2gyZC85NDQzMDgzNTgzNTE4LmpwZ3xhYzRiNWIxZGQ2NjNiNWIyYjI0Y2ZkYTZlZWQ3MTFjZTMxYzVmNDBiNmM5Mzk5OTM2OGVkZmExMjMyYjIxNDQ4";
-  const img2 =
-    "https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/m/f/y/-original-imaggcawkhbb5qcg.jpeg?q=70";
-
-
+  const { cartItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch()
+  const increment = (id) => {
+   dispatch({
+    type:'addToCart',
+    payload:{id}
+   })
+  };
+  const decrement = (id) => {
+    dispatch({
+      type:'decrement',
+      payload:id
+    })
+  };
+  const deleteHandler = (id) => {
+    dispatch({
+      type:'deleteFromCart',
+      payload:id
+    })
+  };
   return (
     <div className="cart">
       <main>
-        <CartItem 
-         imgSrc={img1}
-         price={200}
-         name={'macBook'}
-         qty={'1'}
-        />
+        {cartItems.length > 0 ? (
+          cartItems.map((i) => (
+            <CartItem
+              imgSrc={i.imgSrc}
+              price={i.price}
+              name={i.name}
+              qty={i.quantity}
+              id={i.id}
+              key={i.id}
+              increment={increment}
+              decrement={decrement}
+              deleteHandler={deleteHandler}
+            />
+          ))
+        ) : (
+          <h1>No Items Yet Inside Cart</h1>
+        )}
       </main>
       <aside>
         <h2>Sub Total:$2000</h2>
