@@ -7,8 +7,8 @@ const Header = () => {
     <nav>
       <h2>Logo here..</h2>
       <div>
-        <Link to={"/Home"}>Home</Link>
-        <Link>
+        <Link to={"/"}>Home</Link>
+        <Link to={'/cart'}>
           <FiShoppingBag size={'1.7rem'} />
           <p>{0}</p>
         </Link>
