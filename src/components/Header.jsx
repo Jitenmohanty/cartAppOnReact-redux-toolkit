@@ -7,7 +7,7 @@ const Header = () => {
   const {cartItems} = useSelector(state=>state.cart)
   return (
     <nav>
-      <h2>Logo here..</h2>
+      <h2>TrendyFunk..</h2>
       <div>
         <Link to={"/"}>Home</Link>
         <Link to={'/cart'}>

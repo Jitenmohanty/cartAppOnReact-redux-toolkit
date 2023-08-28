@@ -9,7 +9,9 @@ nav {
     h2 {
         text-transform: uppercase;
         color: $primary;
-        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     >div {
@@ -35,6 +37,14 @@ nav {
                 place-items: center;
                 transform: translate(80%, -80%);
             }
+        }
+    }
+}
+
+@media (max-width: 352px) {
+    nav{
+        h2 {
+            font-size: 1rem;
         }
     }
 }
