@@ -41,6 +41,18 @@ nav {
     }
 }
 
+.image-container {
+    display: inline-block;
+    background-color: transparent; /* Set background to transparent */
+    padding: 10px; /* Add some padding for spacing */
+  }
+  
+  .image-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
 @media (max-width: 352px) {
     nav{
         h2 {
